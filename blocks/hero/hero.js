@@ -14,4 +14,19 @@ export default async function decorate(block) {
     makeVideo(block.querySelector('div'), videoSrc.href);
     videoSrc.remove();
   }
+
+  const imagesWrapper = block.querySelector('div:first-of-type');
+  imagesWrapper.classList.add('images-wrapper');
+
+  const contentWrapper = block.querySelector('div:nth-child(2)');
+  contentWrapper.classList.add('content-wrapper');
+
+  const buttonContainers = contentWrapper.querySelectorAll('.button-container');
+
+  if (buttonContainers.length) {
+    const buttonsWrapper = document.createElement('div');
+    buttonsWrapper.classList.add('buttons');
+    buttonContainers.forEach((btn) => buttonsWrapper.appendChild(btn));
+    contentWrapper.appendChild(buttonsWrapper);
+  }
 }

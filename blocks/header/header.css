@@ -380,6 +380,11 @@ header .nav-wrapper {
 		color: var(--primary-color);
 	}
 
+	header .header .nav-tools .icon {
+		width: 16px;
+		height: auto;
+	}
+
 	@media screen and (width <= 900px) {
 		header nav#nav .nav-tools > .default-content-wrapper p {
 			color: #000;
