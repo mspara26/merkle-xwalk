@@ -301,7 +301,7 @@ header .nav-wrapper {
 	  flex: 0 1 auto;
 	  position: relative;
 	  font-weight: 800;
-		padding: 1rem 0;
+		padding: 2rem 0;
 	}
 
 	header nav#nav .nav-sections .default-content-wrapper > ul > li:hover {
@@ -326,22 +326,10 @@ header .nav-wrapper {
 	  position: absolute;
 	  left: -20px;
 	  width: 250px;
-	  margin-top: 0px;
-	  padding: 3em 2em 2em;
+	  margin-top: 31px;
+	  padding: 2em 2em 2em;
 	  background-color: #fff;
 	  white-space: initial;
-	}
-  
-	header nav#nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-	  content: "";
-	  position: absolute;
-	  top: -8px;
-	  left: 8px;
-	  width: 0;
-	  height: 0;
-	  border-left: 8px solid transparent;
-	  border-right: 8px solid transparent;
-	  border-bottom: 8px solid #fff;
 	}
   
 	header nav#nav .nav-sections .default-content-wrapper > ul > li > ul > li {
