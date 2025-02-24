@@ -12,8 +12,9 @@
 
 :root {
   /* colors */
+  --primary-color: #00634f;
   --link-color: #035fe6;
-  --link-hover-color: #136ff6;
+  --link-hover-color:#009b77;;
   --light-color: #eee;
   --dark-color: #ccc;
   --black: black;
@@ -26,7 +27,7 @@
   --mammoth-blue-hover: #00578E; /* need to update variable name */
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: Gotham, roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --lenovo-font: lato, roboto-fallback; /* need to update variable name */
@@ -84,7 +85,7 @@ body.appear {
 }
 
 header {
-  height: var(--nav-height);
+  /* height: var(--nav-height); */
 }
 
 h1, h2, h3,
@@ -197,18 +198,18 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: 32px 16px;
 }
 
 @media (width >= 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: 32px;
   }
 }
 
 @media (width >= 900px) {
   .section > div {
-    max-width: 1200px;
+    max-width: 1368px;
     margin: auto;
   }
 }
