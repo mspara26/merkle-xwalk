@@ -1,39 +1,118 @@
-.columns > div {
+.columns > div,
+.columns > a {
   display: flex;
   flex-direction: column;
 }
 
-.columns img {
-  width: 100%;
+.columns > a {
+	color: #000;
 }
 
-.columns > div > div {
+.columns > a:hover {
+	text-decoration: none;
+}
+
+.columns img {
+  width: 100%;
+	object-fit: cover;
+}
+
+.columns > div.gradient-left ,
+.columns > a.gradient-left {
+	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-40%, rgba(0, 155, 119, .4)), color-stop(26%, #fff));
+	background-image: linear-gradient(to right bottom, rgba(0, 155, 119, .4) -40%, #fff 26%);
+}
+
+.columns > div.gradient-right ,
+.columns > a.gradient-right {
+	background-image: -webkit-gradient(linear, right top, left bottom, color-stop(-40%, rgba(0, 155, 119, .4)), color-stop(26%, #fff));
+	background-image: linear-gradient(to bottom left, rgba(0, 155, 119, .4) -40%, #fff 26%);
+}
+
+.columns > div > div,
+.columns > a > div {
   order: 1;
 }
 
-.columns > div > .columns-img-col {
+.columns > div > div:not(.columns-img-col),
+.columns > a > div:not(.columns-img-col) {
+	padding: 1rem 0;
+	box-sizing: border-box;
+}
+
+.columns > div > .columns-img-col,
+.columns > a > .columns-img-col {
   order: 0;
 }
 
-.columns > div > .columns-img-col img {
+.columns > div > .columns-img-col img,
+.columns > a > .columns-img-col img {
   display: block;
 }
 
-@media (width >= 900px) {
-  .columns > div {
-    align-items: center;
-    flex-direction: unset;
-    gap: 32px;
-  }
-
-  .columns > div > div {
-    flex: 1;
-    order: unset;
-  }
+.columns > a > div:not(.columns-img-col) {
+	color: inherit;
 }
 
+.columns > div > div:not(.columns-img-col) h3,
+.columns > a > div:not(.columns-img-col) h3 {
+	margin-top: 0;
+	font-size: 26px;
+	font-weight: 900;
+	color: var(--primary-color);
+}
 
+.columns > div > div:not(.columns-img-col) a,
+.columns > a > div:not(.columns-img-col) a {
+	color: var(--primary-color);
+}
 
+.columns > div:hover > div:not(.columns-img-col) h3,
+.columns > a:hover > div:not(.columns-img-col) h3 {
+	color: var(--hover-color);
+}
+
+@media (width >= 900px) {
+  .columns > div,
+	.columns > a {
+    align-items: center;
+    flex-direction: unset;
+  }
+
+  .columns > div > div,
+	.columns > a > div {
+    order: unset;
+  }
+
+  .columns > div > .columns-img-col:first-child,
+	.columns > a > .columns-img-col:first-child {
+    width: 55%;
+		-webkit-clip-path: polygon(0 0, 96% 0, 90% 100%, 0 100%);
+    clip-path: polygon(0 0, 96% 0, 90% 100%, 0 100%);
+  }
+
+	.columns > div > .columns-img-col:last-child,
+	.columns > a > .columns-img-col:last-child {
+    width: 55%;
+		-webkit-clip-path: polygon(14% 0, 100% 0, 100% 100%, 6% 100%);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 6% 100%);
+  }
+
+	.columns > div > div:not(.columns-img-col),
+	.columns > a > div:not(.columns-img-col){
+		width: 45%;
+	}
+
+	.columns > div > div:not(.columns-img-col) h3,
+	.columns > a > div:not(.columns-img-col) h3 {
+		font-size: 48px;
+	}
+
+	.columns > div > div:not(.columns-img-col),
+	.columns > a > div:not(.columns-img-col) {
+		padding: 3rem;
+	}
+}
 
 
 /* quote variant styles */
@@ -114,10 +193,6 @@
 	.section.columns-container.highlight {
 		padding-top: 92px;
 		padding-bottom: 92px;
-	}
-
-	.columns > div {
-		gap: 30px;
 	}
 
 	.columns.quote > div > div:first-of-type {

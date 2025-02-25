@@ -1,17 +1,35 @@
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
+  const link = block.querySelector('a');
   block.classList.add(`columns-${cols.length}-cols`);
 
-  // setup image columns
   [...block.children].forEach((row) => {
-    [...row.children].forEach((col) => {
+    if (link) {
+      const anchor = document.createElement('a');
+      anchor.href = link.href;
+
+      while (row.firstChild) {
+        anchor.appendChild(row.firstChild);
+      }
+
+      row.replaceWith(anchor);
+    }
+
+    // Process columns for image-specific logic
+    const currentRow = link ? block.querySelector(`a[href="${link.href}"]`) : row;
+    [...currentRow.children].forEach((col, idx) => {
       const pic = col.querySelector('picture');
+      let picWrapper;
       if (pic) {
-        const picWrapper = pic.closest('div');
+        picWrapper = pic.closest('div');
         if (picWrapper && picWrapper.children.length === 1) {
-          // picture is only content in column
+          // Picture is the only content in the column
           picWrapper.classList.add('columns-img-col');
         }
+      }
+
+      if (picWrapper) {
+        currentRow.classList.add(`gradient-${idx === 0 ? 'right' : 'left'}`);
       }
     });
   });

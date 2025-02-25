@@ -67,6 +67,7 @@
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
     --heading-font-size-xs: 22px;
+    --heading-font-size-xxs: 16px;
   }
 }
 
@@ -104,8 +105,8 @@ h1 { font-size: var(--heading-font-size-xxl) }
 h2 { font-size: var(--heading-font-size-xl); margin: 1rem 0; }
 h3 { font-size: var(--heading-font-size-l); font-weight: 400; }
 h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h5 { font-size: var(--heading-font-size-s); color: var(--hover-color); }
+h6 { font-size: var(--heading-font-size-xxs); color: var(--hover-color);  }
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
@@ -241,11 +242,6 @@ main .section {
   }
 }
 
-main .section > .default-content-wrapper > p {
-  max-width: 825px;
-  margin: 0 auto;
-}
-
 /* section metadata */
 main .section.light,
 main .section.highlight {
@@ -254,6 +250,12 @@ main .section.highlight {
 
 main .section.text-center {
   text-align: center;
+}
+
+
+main .section.min-width > .default-content-wrapper > p {
+  max-width: 825px;
+  margin: 0 auto;
 }
 
 main .section.h2-gradient h2 {

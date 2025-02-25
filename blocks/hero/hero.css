@@ -90,6 +90,7 @@ main .hero-container {
 .hero .content-wrapper > div:first-of-type p {
 	font-size: 18px;
 	margin: 0;
+	padding: 0 1rem;
 }
 
 .hero .buttons {
