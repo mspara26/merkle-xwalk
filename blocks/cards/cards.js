@@ -45,8 +45,11 @@ export default async function decorate(block) {
   } else if (!isStoryLinks) {
     [...block.children].forEach((row) => {
       const li = document.createElement('li');
-      while (row.firstElementChild) li.append(row.firstElementChild);
-      [...li.children].forEach((div) => {
+      const a = document.createElement('a');
+      
+      while (row.firstElementChild) a.append(row.firstElementChild);
+      
+      [...a.children].forEach((div) => {
         if (div.children.length === 1 && div.querySelector('picture')) {
           div.className = 'cards-card-image';
         } else if (div.children.length === 1 && div.querySelector('span')) {
@@ -55,6 +58,12 @@ export default async function decorate(block) {
           div.className = 'cards-card-body';
         }
       });
+
+      const link = a.querySelector('a');
+      link.parentElement.remove();
+      a.href = link.href;
+    
+      li.append(a);
       ul.append(li);
     });
   }

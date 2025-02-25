@@ -14,7 +14,7 @@
   /* colors */
   --primary-color: #00634f;
   --link-color: #035fe6;
-  --link-hover-color:#009b77;;
+  --hover-color:#009b77;;
   --light-color: #eee;
   --dark-color: #ccc;
   --black: black;
@@ -62,8 +62,8 @@
 @media (width >= 900px) {
   :root {
     --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
+    --heading-font-size-xl: 76px;
+    --heading-font-size-l: 40px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
     --heading-font-size-xs: 22px;
@@ -101,8 +101,8 @@ h4, h5, h6 {
 }
 
 h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
+h2 { font-size: var(--heading-font-size-xl); margin: 1rem 0; }
+h3 { font-size: var(--heading-font-size-l); font-weight: 400; }
 h4 { font-size: var(--heading-font-size-m) }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
@@ -157,7 +157,7 @@ a.button {
 }
 
 a.button:hover, a.button:focus  {
-  color: var(--link-hover-color);
+  color: var(--hover-color);
   cursor: pointer;
 }
 
@@ -179,7 +179,7 @@ a.button.primary {
 }
 
 a.button.primary:hover {
-  background-color: var(--link-hover-color) !important;
+  background-color: var(--hover-color) !important;
   color: #fff;
 }
 
@@ -195,7 +195,7 @@ a.button.secondary {
 }
 
 a.button.secondary:hover {
-  background-color: var(--link-hover-color) !important;
+  background-color: var(--hover-color) !important;
   color: #fff;
   border: 1px solid transparent
 }
@@ -241,10 +241,27 @@ main .section {
   }
 }
 
+main .section > .default-content-wrapper > p {
+  max-width: 825px;
+  margin: 0 auto;
+}
+
 /* section metadata */
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+main .section.text-center {
+  text-align: center;
+}
+
+main .section.h2-gradient h2 {
+  -webkit-transform: translateX(0) skewX(-6deg);
+  transform: translateX(0) skewX(-6deg);
+  background: transparent linear-gradient(94deg, #009b77, #009b77 38%, #004e3c) 0 0 no-repeat padding-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Experimentation Widget Styling */

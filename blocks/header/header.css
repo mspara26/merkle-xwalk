@@ -337,7 +337,7 @@ header .nav-wrapper {
 	}
 
 	header nav#nav .nav-sections .default-content-wrapper > ul > li > ul > li:hover a {
-		color: var(--link-hover-color);
+		color: var(--hover-color);
 	}
   }
   

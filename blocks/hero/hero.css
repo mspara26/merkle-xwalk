@@ -134,6 +134,10 @@ main .hero-container {
 	.hero .content-wrapper > div:first-of-type p {
 		font-size: 24px;
 	}
+
+	.hero .buttons > .button-container:nth-child(2) a {
+		min-width: 330px;
+	}
 }
 
 @media (width <= 900px) {
