@@ -96,7 +96,7 @@ h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 1em;
+  margin-top: .5em;
   margin-bottom: .5em;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
@@ -264,6 +264,45 @@ main .section.h2-gradient h2 {
   background: transparent linear-gradient(94deg, #009b77, #009b77 38%, #004e3c) 0 0 no-repeat padding-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+main .section.border-top {
+  padding-top: 0;
+}
+
+main .section.border-top .block {
+  padding-top: 32px;
+  border-top: 2px solid #dfdfdf;
+}
+
+main .section.border-bottom {
+  padding-bottom: 0;
+}
+
+main .section.border-bottom .block {
+  padding-bottom: 32px;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+main .default-background {
+  background-image: linear-gradient(to right bottom, rgba(0, 155, 119, .4) -40%, #fff 26%);
+
+}
+
+@media (width >= 900px) {
+  main .section.max-width {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  main .section.max-width > div {
+    max-width: unset;
+  }
+
+  main .section.max-width .block {
+    max-width: 1368px;
+    margin: 0 auto;
+  }
 }
 
 /* Experimentation Widget Styling */

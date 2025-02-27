@@ -17,14 +17,14 @@
 	object-fit: cover;
 }
 
-.columns > div.gradient-left ,
-.columns > a.gradient-left {
+.columns.clip-path > div.gradient-left ,
+.columns.clip-path > a.gradient-left {
 	background-image: -webkit-gradient(linear, left top, right bottom, color-stop(-40%, rgba(0, 155, 119, .4)), color-stop(26%, #fff));
 	background-image: linear-gradient(to right bottom, rgba(0, 155, 119, .4) -40%, #fff 26%);
 }
 
-.columns > div.gradient-right ,
-.columns > a.gradient-right {
+.columns.clip-path > div.gradient-right ,
+.columns.clip-path > a.gradient-right {
 	background-image: -webkit-gradient(linear, right top, left bottom, color-stop(-40%, rgba(0, 155, 119, .4)), color-stop(26%, #fff));
 	background-image: linear-gradient(to bottom left, rgba(0, 155, 119, .4) -40%, #fff 26%);
 }
@@ -32,6 +32,7 @@
 .columns > div > div,
 .columns > a > div {
   order: 1;
+	flex: 1;
 }
 
 .columns > div > div:not(.columns-img-col),
@@ -72,6 +73,42 @@
 	color: var(--hover-color);
 }
 
+.columns:not(.clip-path) .columns-img-col img {
+	max-height: 450px;
+	object-fit: contain;
+}
+
+.section.max-width .columns {
+	padding: 3rem 0;
+}
+
+.columns:not(.clip-path) h3 {
+	font-size: 40px !important;
+	font-weight: 400 !important;
+	color: #000 !important;
+}
+
+.columns:not(.clip-path) h2 {
+	font-size: 70px !important;
+	font-weight: 900 !important;
+	color: var(--hover-color) !important;
+	line-height: 1;
+}
+
+.columns:not(.clip-path) div:not(.columns-img-col) p {
+	max-width: 500px;
+}
+
+@media (width >= 900px) {
+	.columns:not(.clip-path) h2 {
+		font-size: 100px !important;
+	}
+
+	.section.max-width .columns {
+		padding: 7.5rem 0;
+	}
+}
+
 @media (width >= 900px) {
   .columns > div,
 	.columns > a {
@@ -79,27 +116,42 @@
     flex-direction: unset;
   }
 
-  .columns > div > div,
+	.columns > div > div,
 	.columns > a > div {
     order: unset;
   }
+	
+	.columns.clip-path > div:hover,
+	.columns.clip-path > div:hover > .columns-img-col img,
+	.columns.clip-path > a:hover,
+	.columns.clip-path > a:hover > .columns-img-col img {
+		outline: 10px solid var(--hover-color);
+		outline-offset: -10px;
+		transition: 1s;
+	}
 
-  .columns > div > .columns-img-col:first-child,
-	.columns > a > .columns-img-col:first-child {
+  .columns.clip-path > div > div,
+	.columns.clip-path > a > div {
+    order: unset;
+		flex: unset;
+  }
+
+  .columns.clip-path > div > .columns-img-col:first-child,
+	.columns.clip-path > a > .columns-img-col:first-child {
     width: 55%;
 		-webkit-clip-path: polygon(0 0, 96% 0, 90% 100%, 0 100%);
     clip-path: polygon(0 0, 96% 0, 90% 100%, 0 100%);
   }
 
-	.columns > div > .columns-img-col:last-child,
-	.columns > a > .columns-img-col:last-child {
+	.columns.clip-path > div > .columns-img-col:last-child,
+	.columns.clip-path > a > .columns-img-col:last-child {
     width: 55%;
 		-webkit-clip-path: polygon(14% 0, 100% 0, 100% 100%, 6% 100%);
     clip-path: polygon(14% 0, 100% 0, 100% 100%, 6% 100%);
   }
 
-	.columns > div > div:not(.columns-img-col),
-	.columns > a > div:not(.columns-img-col){
+	.columns.clip-path > div > div:not(.columns-img-col),
+	.columns.clip-path > a > div:not(.columns-img-col){
 		width: 45%;
 	}
 
@@ -225,4 +277,15 @@
 	.columns.quote > div > div:last-of-type h3 {
 		font-size: 22px;
 	}
+}
+
+/* button */
+.columns a.button.primary {
+	background-color: var(--primary-color);
+	color: #fff;
+}
+
+.columns a.button.primary:hover {
+	background-color: var(--hover-color);
+	color: #fff;
 }

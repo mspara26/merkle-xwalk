@@ -10,8 +10,7 @@
 }
 
 .cards > ul > li {
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color)
+
 }
 
 .cards > ul > li > a {
@@ -21,11 +20,6 @@
 	position: relative;
 	overflow: hidden;
 }
-
-/* .cards > ul > li > a:hover {
-	outline: 10px solid var(--hover-color);
-	outline-offset: -10px;
-} */
 
 .cards .cards-card-body {
  	padding: 16px;

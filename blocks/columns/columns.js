@@ -1,10 +1,12 @@
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   const link = block.querySelector('a');
+  const clipPath = block.classList.contains('clip-path');
   block.classList.add(`columns-${cols.length}-cols`);
 
   [...block.children].forEach((row) => {
-    if (link) {
+    // Only wrap with a link if clipPath is true
+    if (clipPath && link) {
       const anchor = document.createElement('a');
       anchor.href = link.href;
 
@@ -16,7 +18,7 @@ export default function decorate(block) {
     }
 
     // Process columns for image-specific logic
-    const currentRow = link ? block.querySelector(`a[href="${link.href}"]`) : row;
+    const currentRow = clipPath && link ? block.querySelector(`a[href="${link.href}"]`) : row;
     [...currentRow.children].forEach((col, idx) => {
       const pic = col.querySelector('picture');
       let picWrapper;
