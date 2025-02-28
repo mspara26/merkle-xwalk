@@ -62,9 +62,9 @@
 @media (width >= 900px) {
   :root {
     --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 76px;
-    --heading-font-size-l: 40px;
-    --heading-font-size-m: 30px;
+    --heading-font-size-xl: 100px;
+    --heading-font-size-l: 76px;
+    --heading-font-size-m: 34px;
     --heading-font-size-s: 24px;
     --heading-font-size-xs: 22px;
     --heading-font-size-xxs: 16px;
@@ -96,15 +96,15 @@ h4, h5, h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: .5em;
-  margin-bottom: .5em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
 h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl); margin: 1rem 0; }
-h3 { font-size: var(--heading-font-size-l); font-weight: 400; }
-h4 { font-size: var(--heading-font-size-m) }
+h2 { font-size: var(--heading-font-size-xl); margin: 1rem 0; color: rgb(18, 203, 160); }
+h3 { font-size: var(--heading-font-size-l); font-weight: 900; }
+h4 { font-size: var(--heading-font-size-m); font-weight: 400; }
 h5 { font-size: var(--heading-font-size-s); color: var(--hover-color); }
 h6 { font-size: var(--heading-font-size-xxs); color: var(--hover-color);  }
 
@@ -138,6 +138,12 @@ main pre {
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
+}
+
+a.button::after {
+  content: "→";
+  font-size: 16px;
+  margin-left: 5px;
 }
 
 a:hover {
@@ -258,7 +264,9 @@ main .section.min-width > .default-content-wrapper > p {
   margin: 0 auto;
 }
 
-main .section.h2-gradient h2 {
+main .section.heading-gradient h1,
+main .section.heading-gradient h2, 
+main .section.heading-gradient h3 {
   -webkit-transform: translateX(0) skewX(-6deg);
   transform: translateX(0) skewX(-6deg);
   background: transparent linear-gradient(94deg, #009b77, #009b77 38%, #004e3c) 0 0 no-repeat padding-box;
@@ -284,9 +292,12 @@ main .section.border-bottom .block {
   border-bottom: 2px solid #dfdfdf;
 }
 
-main .default-background {
+main .section.default-background {
   background-image: linear-gradient(to right bottom, rgba(0, 155, 119, .4) -40%, #fff 26%);
+}
 
+main .section.brand-background {
+  background-color: rgb(0, 99, 79);
 }
 
 @media (width >= 900px) {

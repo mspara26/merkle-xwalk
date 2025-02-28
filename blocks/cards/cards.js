@@ -1,73 +1,33 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import fetchHtml from '../story/story-cards-util.js';
+import { renderClipPathCards } from './clip-path.js';
+import { renderPercentCards } from './percentage.js';
 
 export default async function decorate(block) {
-  const isJSON = block.classList.contains('is-json');
-  const isStoryLinks = block.classList.contains('story-links');
+  const isClipPath = block.classList.contains('clip-path');
+  const isPercent = block.classList.contains('percent');
 
-  async function fetchJson(link) {
-    const response = await fetch(link?.href);
-
-    if (response.ok) {
-      const jsonData = await response.json();
-      const data = jsonData?.data;
-      return data;
-    }
-    return 'an error occurred';
+  if (isClipPath) {
+    renderClipPathCards(block);
   }
 
-  const ul = document.createElement('ul');
-
-  if (isStoryLinks) {
-    const blockLinks = block.querySelectorAll('a');
-    blockLinks.forEach((link) => {
-      fetchHtml(link, ul);
-    });
+  if (isPercent) {
+    renderPercentCards(block);
   }
 
-  if (isJSON) {
-    const link = block.querySelector('a');
-    const cardData = await fetchJson(link);
-    cardData.forEach((item) => {
-      const picture = createOptimizedPicture(item.image, item.title, false, [{ width: 320 }]);
-      picture.lastElementChild.width = '320';
-      picture.lastElementChild.height = '180';
-
-      const createdCard = document.createElement('li');
-
-      createdCard.innerHTML = `
-        <div class="cards-card-body">
-          // place inner HTML structure based on JSON response as needed
-        </div>
-      `;
-      ul.append(createdCard);
-    });
-  } else if (!isStoryLinks) {
+  if (!isClipPath && !isPercent) {
+    /* change to ul, li */
+    const ul = document.createElement('ul');
     [...block.children].forEach((row) => {
       const li = document.createElement('li');
-      const a = document.createElement('a');
-      
-      while (row.firstElementChild) a.append(row.firstElementChild);
-      
-      [...a.children].forEach((div) => {
-        if (div.children.length === 1 && div.querySelector('picture')) {
-          div.className = 'cards-card-image';
-        } else if (div.children.length === 1 && div.querySelector('span')) {
-          div.className = 'cards-card-icon';
-        } else {
-          div.className = 'cards-card-body';
-        }
+      while (row.firstElementChild) li.append(row.firstElementChild);
+      [...li.children].forEach((div) => {
+        if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
+        else div.className = 'cards-card-body';
       });
-
-      const link = a.querySelector('a');
-      link.parentElement.remove();
-      a.href = link.href;
-    
-      li.append(a);
       ul.append(li);
     });
+    ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+    block.textContent = '';
+    block.append(ul);
   }
-
-  block.textContent = '';
-  block.append(ul);
 }

@@ -1,0 +1,59 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.banner > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.banner img {
+  width: auto;
+  max-height: 254px;
+}
+
+.banner > div > div {
+  order: 1;
+  height: 100%;
+  text-align: center;
+}
+
+.banner a {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+@media (width >= 900px) {
+  .banner {
+    flex-direction: row;
+    align-items: center;
+    padding: 3rem 0;
+  }
+
+  .banner > div {
+    align-items: center;
+    flex-direction: row;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .banner > div > div {
+    order: unset;
+    text-align: left;
+  }
+
+  .banner .banner-cards > div > p {
+    text-align: center;
+  }
+
+  .banner > div:not(.banner-cards) {
+    border-right: 1px solid #fff;
+    padding-right: 3rem;
+  }
+}
