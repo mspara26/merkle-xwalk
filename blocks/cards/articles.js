@@ -39,7 +39,7 @@ export async function renderArticlesCards(block) {
     picture.lastElementChild.height = '180';
     const createdCard = document.createElement('li');
     createdCard.innerHTML = `
-      <a href="${item.url}" aria-label="${item['anchor-text']}" title="${item['anchor-text']}">
+      <a href="${item.url}" aria-label="${item.title}" title="${item.title}">
         <div class="cards-card-image">
           <div data-align="center">${picture.outerHTML}</div>
         </div>
