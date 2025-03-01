@@ -44,11 +44,6 @@ header .nav-wrapper {
   @media (width >= 900px) {
 	header nav#nav {
 	  padding: 0 2rem;
-	}
-  }
-  
-  @media (width >= 900px) {
-	header nav#nav {
 	  display: flex;
 	  justify-content: space-between;
 	}
@@ -229,7 +224,8 @@ header .nav-wrapper {
 		display: none;
 	}
 
-	@media (width <= 900px) {
+
+	@media (width < 900px) {
 		header nav#nav .section.nav-brand > div > p:first-of-type> a {
 			display: block;
 		}
@@ -237,7 +233,6 @@ header .nav-wrapper {
 		header nav#nav .section.nav-brand > div > p:last-of-type > a {
 			display: none;
 		}
-
 
 		header nav#nav .nav-sections ul > li,
 		header nav#nav .nav-sections ul > li *{
@@ -247,6 +242,35 @@ header .nav-wrapper {
 
   
   @media (width >= 900px) {
+	body.not-homepage header .nav-wrapper {
+		background-color: #fff;
+	}
+	body.not-homepage header nav#nav .nav-sections ul > li,
+	body.not-homepage header nav#nav .nav-sections ul > li *{
+		color: var(--primary-color);
+	}
+
+	body.not-homepage header .header.active nav#nav .nav-sections ul > li,
+	body.not-homepage header .header.active nav#nav .nav-sections ul > li *{
+		color: var(--primary-color);
+	}
+
+	body.not-homepage header nav#nav .section.nav-brand > div > p:first-of-type> a {
+		display: block;
+	}
+
+	body.not-homepage header .header.active nav#nav .section.nav-brand > div > p:first-of-type > a {
+		display: block;
+	}
+
+	body.not-homepage header nav#nav .section.nav-brand > div > p:last-of-type > a {
+		display: none;
+	}
+
+	body.not-homepage header .header.active nav#nav .section.nav-brand > div > p:last-of-type > a {
+		display: none;
+	}
+
 	header nav#nav .nav-sections {
 	  display: block;
 	  visibility: visible;
@@ -270,17 +294,6 @@ header .nav-wrapper {
   
 	header nav#nav .nav-sections .nav-drop::after {
 		display: none;
-	  /* content: "";
-	  display: inline-block;
-	  position: absolute;
-	  top: 0.5em;
-	  right: 2px;
-	  transform: rotate(135deg);
-	  width: 6px;
-	  height: 6px;
-	  border: 2px solid currentcolor;
-	  border-radius: 0 1px 0 0;
-	  border-width: 2px 2px 0 0; */
 	}
   
 	header nav#nav .nav-sections .nav-drop[aria-expanded="true"]::after {
@@ -385,12 +398,22 @@ header .nav-wrapper {
 		height: auto;
 	}
 
-	@media screen and (width <= 900px) {
+	@media screen and (width < 900px) {
 		header nav#nav .nav-tools > .default-content-wrapper p {
 			color: #000;
 		}
 
 		header nav#nav .nav-tools > .default-content-wrapper .icon img {
+			filter: invert(1);
+		}
+	}
+
+	@media (width >= 900px) {
+		body.not-homepage header nav#nav .nav-tools > .default-content-wrapper p {
+			color: #000;
+		}
+		
+		body.not-homepage header nav#nav .nav-tools > .default-content-wrapper .icon img {
 			filter: invert(1);
 		}
 	}

@@ -246,6 +246,10 @@ main .section {
     max-width: 1368px;
     margin: auto;
   }
+
+  body.not-homepage main {
+    padding-top: 88px;
+  }
 }
 
 /* section metadata */
@@ -278,7 +282,7 @@ main .section.border-top {
   padding-top: 0;
 }
 
-main .section.border-top .block {
+main .section.border-top > div:first-of-type {
   padding-top: 32px;
   border-top: 2px solid #dfdfdf;
 }
@@ -287,7 +291,7 @@ main .section.border-bottom {
   padding-bottom: 0;
 }
 
-main .section.border-bottom .block {
+main .section.border-bottom > div:last-of-type {
   padding-bottom: 32px;
   border-bottom: 2px solid #dfdfdf;
 }

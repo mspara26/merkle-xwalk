@@ -1,17 +1,21 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 import { renderClipPathCards } from './clip-path.js';
 import { renderPercentCards } from './percentage.js';
+import { renderArticlesCards } from './articles.js';
 
 export default async function decorate(block) {
   const isClipPath = block.classList.contains('clip-path');
   const isPercent = block.classList.contains('percent');
+  const isArticles = block.classList.contains('articles');
 
   if (isClipPath) {
     renderClipPathCards(block);
   }
-
   if (isPercent) {
     renderPercentCards(block);
+  }
+  if (isArticles) {
+    renderArticlesCards(block);
   }
 
   if (!isClipPath && !isPercent) {
