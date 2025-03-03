@@ -61,6 +61,8 @@ form [data-hidden="true"] {
 main .form-container {
     display: flex;
     flex-direction: row;
+    max-width: 1368px;
+    margin: 0 auto;
 }
 
 main .form-container > div {
@@ -80,17 +82,22 @@ main .form br {
 main .form h4 {
     font-size: 32px;
     text-align: left;
-    margin-bottom: 2rem;
     margin-top: 0;
+    margin-bottom: 0;
+}
+
+main .form-container h2 {
+    color: var(--primary-color);
+    margin-top: 0;   
 }
 
 main .form-container > .default-content-wrapper {
     color: var(--color-white);
-    width: 35%;
+    width: 30%;
 }
 
 main .form-container > .form-wrapper {
-    width: 65%;
+    width: 70%;
 }
 
 main .form-container .form.block {
@@ -109,6 +116,12 @@ main .form-container > .default-content-wrapper h4 {
 main .form-container > .default-content-wrapper > p:first-of-type {
     font-size: 20px;
     font-weight: 300;
+    text-align: right;
+}
+
+main .form-container > .default-content-wrapper img {
+    height: 208px;
+    width: auto;
 }
 
 main .form form .field-wrapper[data-editor-itemmodel="text"] label,
@@ -159,11 +172,30 @@ main .form label[for="agreement"] {
     font-size: 14px;
     color: #000;
     text-align: left;
-    padding-right: 40%;
 }
 
 main .form .form-submit {
-    text-align: right;
+    text-align: left;
+}
+
+main .form .form-submit button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+}
+
+main .form .form-submit button:hover {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+}
+
+@media (width <= 1400px) {
+    main .form-container h2 {
+        font-size: 60px;
+    }
 }
 
 @media (width <= 900px) {
@@ -189,6 +221,16 @@ main .form .form-submit {
 
     main .form-container .form.block {
         padding: 2rem;
+    }
+
+    main .form-container > .default-content-wrapper > p:first-of-type {
+        text-align: center;
+    }
+
+    main .form-container h2 {
+        color: var(--primary-color);
+        margin-top: 0;   
+        font-size: 40px;
     }
 }
 
