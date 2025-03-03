@@ -72,7 +72,7 @@
 }
 
 body {
-  font-size: var(--body-font-size-xs);
+  font-size: var(--body-font-size-s);
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
