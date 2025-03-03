@@ -1,3 +1,5 @@
+import { createOptimizedPicture } from '../../scripts/aem.js';
+
 export function renderClipPathCards(block) {
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -23,6 +25,8 @@ export function renderClipPathCards(block) {
     li.append(a);
     ul.append(li);
   });
+
+  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '450' }])));
 
   block.textContent = '';
   block.append(ul);
