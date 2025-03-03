@@ -23,6 +23,8 @@ export default async function decorate(block) {
 
   const buttonContainers = contentWrapper.querySelectorAll('.button-container');
 
+  block.querySelectorAll('picture > img').forEach((img) => img.loading = 'eager');
+
   if (buttonContainers.length) {
     const buttonsWrapper = document.createElement('div');
     buttonsWrapper.classList.add('buttons');
