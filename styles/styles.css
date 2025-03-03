@@ -86,7 +86,6 @@ body.appear {
 }
 
 header {
-  /* height: var(--nav-height); */
   z-index: 5;
   position: relative;
 }

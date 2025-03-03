@@ -157,9 +157,3 @@ main .hero-container {
 		width: 100%;
 	}
 }
-
-@media (width <=  768px) {
-	.hero h1 {
-		min-height: 290px;
-	}
-}
