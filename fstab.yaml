@@ -1,2 +1,5 @@
 mountpoints:
-  /: https://drive.google.com/drive/folders/1vzs6VrzjwK1VV0mvtEkSek2z3FFF3a-G
+  /: 
+    url: "https://author-p121050-e1183639.adobeaemcloud.com/bin/franklin.delivery/mspara26/merkle-xwalk/main"
+    type: "markup"
+    suffix: ".html"
