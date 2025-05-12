@@ -1,0 +1,10 @@
+{
+  "mappings": [
+    "/content/merkle-demo/:/",
+    "/content/merkle-demo/configuration:/.helix/config.json",
+    "/content/merkle-demo/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/merkle-demo/"
+  ]
+}
